@@ -1,0 +1,18 @@
+.formList{
+    display: inline-block;
+    width: 80%;
+    margin-right: 15px;
+    margin-top: 35px;
+}
+.btnCls{
+    margin-top: -5px;
+}
+.btnCls:first-child{
+    margin-right: 10px;
+}
+.firstBtn{
+    margin-right: 15px;
+}
+.formListCls{
+    display: inline-block;
+}
