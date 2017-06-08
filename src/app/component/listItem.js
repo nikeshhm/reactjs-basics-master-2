@@ -5,9 +5,10 @@ import React from 'react';
 
 export class ListItem extends React.Component{
     constructor(props){
-        super()
+        super();
         this.state = {
-            editing: false
+            editing: false,
+            checked:props.item.checked
         }
     }
     onShowEditMode(){
@@ -21,7 +22,7 @@ export class ListItem extends React.Component{
         })
     }
     onEditingInputValue(){
-        var firstValue = this.props.item.title;
+        var firstValue = this.props.item
         var newValue = this.refs.inputValue.value;
         this.props.saveChange(newValue,firstValue)
         this.setState({
@@ -32,24 +33,27 @@ export class ListItem extends React.Component{
         if(this.state.editing){
             return(
                 <form onSubmit={this.onEditingInputValue.bind(this)} className="formListCls">
-                    <input ref='inputValue' defaultValue={this.props.item.title}/>
+                    <input ref='inputValue' defaultValue={this.props.item.name}/>
                 </form>
             )
         }else{
             return(
-                <span>{this.props.item.title}</span>
+                <span>
+                    <span className="nameCls">{this.props.item.name}</span>
+                </span>
                 )
 
         }
     }
+
     onRemoveHandler(){
-        this.props.remove(this.props.item.title)
+        this.props.remove(this.props.item)
     }
     onEditingModeRender(){
         if(this.state.editing){
             return(
                 <span className="pull-right btnCls">
-                    <button className="btn-sm btn-success firstBtn">save</button>
+                    <button className="btn-sm btn-success firstBtn" onClick={this.onEditingInputValue.bind(this)}>save</button>
                     <button className="btn-sm btn-info" onClick={this.onShowViewMode.bind(this)}>cancel</button>
                 </span>
             )

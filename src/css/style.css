@@ -16,3 +16,12 @@
 .formListCls{
     display: inline-block;
 }
+.titleCls{
+    margin-left: 10px;
+}
+.lineThrough{
+    text-decoration: line-through;
+}
+.todo-list{
+    margin-top: 10px;
+}
